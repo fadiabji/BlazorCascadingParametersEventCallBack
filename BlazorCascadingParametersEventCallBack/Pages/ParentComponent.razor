@@ -1,0 +1,24 @@
+﻿@page "/eventcallback"
+
+
+<h3>ParentComponent</h3>
+
+<p>
+    Current Counte: @currentCount
+</p>
+
+
+@*here the name of the paramerter is the function name*@
+<EventCallBackComponent SetCurrentCount="SetCurrentCount"></EventCallBackComponent>
+@code {
+
+
+    private int currentCount;
+
+    //here is the funciton
+    private void SetCurrentCount(int value)
+    {
+        currentCount = value;
+    } 
+
+}

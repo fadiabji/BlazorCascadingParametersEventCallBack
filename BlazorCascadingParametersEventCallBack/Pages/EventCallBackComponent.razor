@@ -1,0 +1,22 @@
+﻿
+
+
+<h3>EventCallBackComponent</h3>
+<h4>Child Component</h4>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    [Parameter]
+    public EventCallback<int> SetCurrentCount{ get; set; }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+
+        // you have to invoke the parameter here
+        SetCurrentCount.InvokeAsync(currentCount);
+    }
+}
