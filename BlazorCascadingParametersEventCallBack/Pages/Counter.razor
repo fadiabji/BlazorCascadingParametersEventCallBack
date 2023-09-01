@@ -1,0 +1,27 @@
+﻿@page "/counter"
+
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+<CascadingValue Name="Counter" Value="@CounterValue">
+    <CascadingValue Name="TitleColor" Value="@("blue")">
+        <Component1></Component1>
+    </CascadingValue>
+</CascadingValue>
+
+
+
+@code {
+    [CascadingParameter(Name ="value")]
+    public int CounterValue { get; set; }
+
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        CounterValue = currentCount;
+    }
+}
